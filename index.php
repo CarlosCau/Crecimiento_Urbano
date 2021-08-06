@@ -648,7 +648,7 @@
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,255,0,1.0)',
+                fillColor: 'rgba(0,255,0,0.7019607843137254)',
                 interactive: false,
             }
         }
