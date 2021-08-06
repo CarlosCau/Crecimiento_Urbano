@@ -1,0 +1,165 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background:#fff;
+    overflow-x: hidden;
+}
+
+.borde{
+    border: 0px solid #fff;
+}
+
+.centrado{
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+#login{
+    margin-top: 65px;
+    margin-left: 25%;
+}
+
+.contenedorLogin{
+}
+
+.mapalogin{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+#navbarNav{
+    position: absolute;
+    right: 0px;
+    margin-right: 150px;
+}
+
+#navbarNav ul li {
+    color: #fff;
+}
+
+.navbar{
+    background: #13322b;
+    color: white;
+}
+
+.navbar {
+    color: #fff;
+}
+
+.logo{
+    background: #0c231e;
+}
+
+#logoMexico{
+    margin-left: 60px;
+}
+
+.nav-link{
+    color: white;
+}
+
+input[type=text],
+input[type=password]{
+    margin: 10px 0px 10px 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+}
+
+h3{
+    width: 100%;
+    color: #2c6658;
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btnInicio {
+    background: #9D2449;
+    padding: 10px 20px 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid #9D2449;
+    float: right
+}
+
+.btnInicio:hover {
+    background: #9D2449;
+    border: 1px solid #9D2449;
+    font-weight: bold;
+}
+
+#piePagina{
+    background-size: cover;
+    padding: 30px 10px 10px;
+    background-image: url(https://framework-gb.cdn.gob.mx/landing/img/fondofooter3.svg);
+    background-size: 1000px;
+}
+
+@media screen and (max-width: 767px) {
+    .contenedorLogin{
+        border: 0px solid #FFFFFF;
+        width:95%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        margin-top: 30%;
+        background: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        padding: 30px 50px 30px 50px;
+    }
+}
+
+.main-footer {
+}
+.main-footer {
+    background-color: #13322B;
+    min-height: 56px;
+    color: #FFF;
+    padding: 0px 0 0px;
+    text-align: left;
+    font-size: 12px;
+}
+
+h2{
+    font-size: 14px;
+}
+
+
+a{
+    margin-left: 30px;
+}
+
+.submenu{
+    margin-left: 0px;
+}
+
+.mapaPublico{
+    margin: 0px 100px 0px 100px;
+    width: 85%;
+    height: 80%;
+}
+
+.ruta{
+    margin-left: 180px;
+}
+
+.tituloMapa{
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+.descripcionMapa{
+    margin-left: 110px;
+    margin-right: 110px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.breadcrumb{
+    background-color: #ffffff;
+}
