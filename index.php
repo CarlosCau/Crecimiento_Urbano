@@ -77,6 +77,8 @@
         <script src="data/AsentamientosVulnerablesRiesgos_13.js"></script>
         <script src="data/AsentamientosSobreDerechoDeVia_14.js"></script>
         <script src="data/Propuesta_2_1.js"></script>
+        <script src="data/ColoniasTecho_1.js"></script>
+        <script src="data/ComunidadesTecho_2.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:10
@@ -551,7 +553,7 @@
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,188,116,0.8)',
+                fillColor: 'rgba(255,188,116,0.7)',
                 interactive: false,
             }
                     break;
@@ -561,7 +563,7 @@
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(251,112,80,0.8)',
+                fillColor: 'rgba(251,112,80,0.7)',
                 interactive: false,
             }
                     break;
@@ -571,7 +573,7 @@
                 stroke: false, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(103,0,13,0.8)',
+                fillColor: 'rgba(103,0,13,0.7)',
                 interactive: false,
             }
                     break;
@@ -805,8 +807,104 @@
         });
         bounds_group.addLayer(layer_AsentamientosSobreDerechoDeVia_14);
         map.addLayer(layer_AsentamientosSobreDerechoDeVia_14);
+            
+            
+        function pop_ColoniasTecho_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">COLONIA '+ (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '')+'<br /></td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ColoniasTecho_1_0() {
+            return {
+                pane: 'pane_ColoniasTecho_1',
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        function style_ColoniasTecho_1_1() {
+            return {
+                pane: 'pane_ColoniasTecho_1',
+                opacity: 1,
+                color: 'rgba(160,26,26,1.0)',
+                dashArray: '10,5',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ColoniasTecho_1');
+        map.getPane('pane_ColoniasTecho_1').style.zIndex = 451;
+        map.getPane('pane_ColoniasTecho_1').style['mix-blend-mode'] = 'normal';
+        var layer_ColoniasTecho_1 = new L.geoJson.multiStyle(json_ColoniasTecho_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ColoniasTecho_1',
+            layerName: 'layer_ColoniasTecho_1',
+            pane: 'pane_ColoniasTecho_1',
+            onEachFeature: pop_ColoniasTecho_1,
+            styles: [style_ColoniasTecho_1_0,style_ColoniasTecho_1_1,]
+        });
+        bounds_group.addLayer(layer_ColoniasTecho_1);
+            
+            
+        function pop_ComunidadesTecho_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ComunidadesTecho_2_0() {
+            return {
+                pane: 'pane_ComunidadesTecho_2',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'images/TechoChincheta.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ComunidadesTecho_2');
+        map.getPane('pane_ComunidadesTecho_2').style.zIndex = 500;
+        map.getPane('pane_ComunidadesTecho_2').style['mix-blend-mode'] = 'normal';
+        var layer_ComunidadesTecho_2 = new L.geoJson(json_ComunidadesTecho_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ComunidadesTecho_2',
+            layerName: 'layer_ComunidadesTecho_2',
+            pane: 'pane_ComunidadesTecho_2',
+            onEachFeature: pop_ComunidadesTecho_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_ComunidadesTecho_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ComunidadesTecho_2);
+            
+            
+            
+            
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/AsentamientosSobreDerechoDeVia_14.png" /> Asentamientos en derecho de vía': layer_AsentamientosSobreDerechoDeVia_14,'<img src="legend/AsentamientosVulnerablesRiesgos_13.png" /> Asentamientos vulnerables a riesgos': layer_AsentamientosVulnerablesRiesgos_13,'<img src="legend/AsentamientosEnANP_12.png" /> Asentamientos en Áreas Naturales Protegidas': layer_AsentamientosEnANP_12,'<img src="legend/AsentamientosEnParcelasYTUC_11.png" /> Asentamientos en parcelas y TUC': layer_AsentamientosEnParcelasYTUC_11,'<img src="legend/AsentamientosDispersos_10.png" /> Asentamientos Irregulares Dispersos': layer_AsentamientosDispersos_10,'<img src="legend/RezagoUrbanoSocial_9.png" /> Asentamientos con Rezago Urbano Social': layer_RezagoUrbanoSocial_9,'<img src="legend/Propuesta1_AHIP_8.png" /> AHI propuesta 1': layer_Propuesta1_AHIP_8,'Propuesta 2 AHI<br /><table><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularesnoprecarios0.png" /></td><td>Asentamientos Irregulares no precarios</td></tr><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularessinespecificar1.png" /></td><td>Asentamientos Irregulares sin especificar</td></tr><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularesprecarios2.png" /></td><td>Asentamientos Irregulares precarios</td></tr></table>': layer_Propuesta_2_1,'<img src="legend/SueloConstruido2010_7.png" /> Suelo Construido 2010': layer_SueloConstruido2010_7,'<img src="legend/SueloConstruido2015_6.png" /> Suelo Construido 2015': layer_SueloConstruido2015_6,'<img src="legend/SueloConstruido2020_5.png" /> Suelo Construido 2020': layer_SueloConstruido2020_5,'<img src="legend/Crecimiento_2010_2015_4.png" /> Crecimiento 2010-2015': layer_Crecimiento_2010_2015_4,'<img src="legend/Crecimiento_2010_2020_3.png" /> Crecimiento 2010-2020': layer_Crecimiento_2010_2020_3,'<img src="legend/LimiteMunicipal_2.png" /> Límite Municipal': layer_LimiteMunicipal_2,'<img src="legend/LimiteMetropolitano_1.png" /> Límite Metropolitano': layer_LimiteMetropolitano_1,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/AsentamientosSobreDerechoDeVia_14.png" /> Asentamientos en derecho de vía': layer_AsentamientosSobreDerechoDeVia_14,'<img src="legend/AsentamientosVulnerablesRiesgos_13.png" /> Asentamientos vulnerables a riesgos': layer_AsentamientosVulnerablesRiesgos_13,'<img src="legend/AsentamientosEnANP_12.png" /> Asentamientos en Áreas Naturales Protegidas': layer_AsentamientosEnANP_12,'<img src="legend/AsentamientosEnParcelasYTUC_11.png" /> Asentamientos en parcelas y TUC': layer_AsentamientosEnParcelasYTUC_11,'<img src="legend/AsentamientosDispersos_10.png" /> Asentamientos Irregulares Dispersos': layer_AsentamientosDispersos_10,'<img src="legend/RezagoUrbanoSocial_9.png" /> Asentamientos con Rezago Urbano Social': layer_RezagoUrbanoSocial_9,'<img src="legend/Propuesta1_AHIP_8.png" /> AHI propuesta 1': layer_Propuesta1_AHIP_8,'Propuesta 2 AHI<br /><table><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularesnoprecarios0.png" /></td><td>Asentamientos Irregulares no precarios</td></tr><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularessinespecificar1.png" /></td><td>Asentamientos Irregulares sin especificar</td></tr><tr><td style="text-align: center;"><img src="legend/Propuesta_2_1_AsentamientosIrregularesprecarios2.png" /></td><td>Asentamientos Irregulares precarios</td></tr></table>': layer_Propuesta_2_1,'<img src="legend/SueloConstruido2010_7.png" /> Suelo Construido 2010': layer_SueloConstruido2010_7,'<img src="legend/SueloConstruido2015_6.png" /> Suelo Construido 2015': layer_SueloConstruido2015_6,'<img src="legend/SueloConstruido2020_5.png" /> Suelo Construido 2020': layer_SueloConstruido2020_5,'<img src="legend/Crecimiento_2010_2015_4.png" /> Crecimiento 2010-2015': layer_Crecimiento_2010_2015_4,'<img src="legend/Crecimiento_2010_2020_3.png" /> Crecimiento 2010-2020': layer_Crecimiento_2010_2020_3,'<img src="legend/ComunidadesTecho_2_1.png" height="16" /> Comunidades Techo': layer_ComunidadesTecho_2,'<img src="legend/ColoniasTecho_1.png" /> Colonias Techo': layer_ColoniasTecho_1,'<img src="legend/LimiteMunicipal_2.png" /> Límite Municipal': layer_LimiteMunicipal_2,'<img src="legend/LimiteMetropolitano_1.png" /> Límite Metropolitano': layer_LimiteMetropolitano_1,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
